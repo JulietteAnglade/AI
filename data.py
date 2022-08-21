@@ -53,8 +53,7 @@ def get_minisets(dataset, targets, length_miniset):  # shuffles the data sets an
 def save_ai(ai, filename):
     data = {
         "layers": ai.layers,
-        "weights": ai.weights,
-        "bias": ai.bias
+        "loss_function": ai.loss_function
     }
     with open(filename, "wb") as f:
         pickle.dump(data, f)
@@ -63,7 +62,7 @@ def save_ai(ai, filename):
 def load_ai(filename):
     with open(filename, "rb") as f:
         data = pickle.load(f)
-        return data.get("layers"), data.get("weights"), data.get("bias")
+        return data.get("layers"), data.get("loss_function")
 
 
 
